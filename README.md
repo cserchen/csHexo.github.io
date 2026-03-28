@@ -39,32 +39,42 @@ npx serve .
 ## 项目结构
 
 ```
-csHexo.github.io/
+cser's Blog/
 │
 ├── index.html              # 首页（文章列表）
 ├── page/2/                 # 首页第 2 页
+├── favicon.png             # 网站图标
+├── README.md               # 项目文档
 │
-├── 2015/                   # 博客文章（按年/月/日/slug 组织）
-│   └── 08/23/Git技巧之服务器安装/
-│       └── index.html
+├── 2015/                   # 博客文章（按 年/月/日/英文slug 组织）
+│   ├── 03/09/android-csdroid-library-design/
+│   ├── 03/10/product-review-magi-search-engine/
+│   ├── 03/14/gradle-publish-to-jcenter/
+│   ├── 03/19/mac-tips-get-root-access/
+│   ├── 03/20/mac-tips-update-svn-version/
+│   ├── 04/23/life-journal-whats-new/
+│   ├── 06/15/wordpress-tips-php-password/
+│   ├── 08/12/product-research-what-is-great-product/
+│   └── 08/23/git-tips-server-setup/
 │
 ├── about/index.html        # 关于页
 ├── recommend/index.html    # 推荐页
 ├── archives/               # 归档（全部 / 按年月）
-├── categories/             # 分类页（产品设计 / 技术研发 / 生活随笔）
-├── tags/                   # 标签页
+├── categories/             # 分类页
+│   ├── product-design/     # 产品设计
+│   ├── tech/               # 技术研发
+│   └── life/               # 生活随笔
+├── tags/                   # 标签页（全英文小写 kebab-case）
 │
-├── css/
-│   ├── style.css           # 主样式表（含注释分区，约 2100 行）
-│   └── images/
-│       └── avatar.png      # 头像图片
-│
-├── js/
-│   └── script.js           # 主交互逻辑（分享框 / 图片灯箱 / 回到顶部）
-│
-├── font-awesome/           # Font Awesome 4.x 图标库
-├── fancybox/               # FancyBox 2.x 图片灯箱
-└── favicon.png             # 网站图标
+└── assets/                 # 所有静态资源
+    ├── css/
+    │   ├── style.css       # 主样式表（含12个模块注释分区，约2100行）
+    │   └── images/         # 头像、缩略图等图片资源
+    ├── js/
+    │   └── script.js       # 主交互逻辑（分享框/图片灯箱/回到顶部）
+    └── lib/
+        ├── fancybox/       # FancyBox 2.x 图片灯箱
+        └── font-awesome/   # Font Awesome 4.x 图标字体
 ```
 
 ---
@@ -73,7 +83,7 @@ csHexo.github.io/
 
 ### 修改样式
 
-编辑 `css/style.css`，文件已按模块添加注释分区，便于定位：
+编辑 `assets/css/style.css`，文件已按模块添加注释分区，便于定位：
 
 | 分区注释 | 内容 |
 |----------|------|
@@ -92,7 +102,7 @@ csHexo.github.io/
 
 ### 修改交互逻辑
 
-编辑 `js/script.js`，文件已全部注释，包含四个功能模块：
+编辑 `assets/js/script.js`，文件已全部注释，包含四个功能模块：
 
 1. **Share Box**：文章分享按钮（Twitter / Facebook / Pinterest / Google+）
 2. **Image Captions & FancyBox**：图片自动加说明文字 + 灯箱效果
@@ -103,7 +113,7 @@ csHexo.github.io/
 
 由于这是 Hexo **预编译产物**，添加文章需要在原始 Hexo 源码仓库中执行 `hexo generate`，然后将生成的文件替换到本仓库。
 
-如需快速手动添加，可参考现有文章目录结构（如 `2015/08/23/Git技巧之服务器安装/index.html`），按相同格式创建新的 `index.html`。
+如需快速手动添加，可参考现有文章目录结构（如 `2015/08/23/git-tips-server-setup/index.html`），按相同格式创建新的 `index.html`，目录名使用英文 kebab-case。
 
 ---
 
@@ -129,16 +139,30 @@ csHexo.github.io/
 
 ---
 
-## 近期优化记录
+## 更新记录
 
-本仓库已于 2026-03 完成以下优化（详见 commit 历史）：
+### 2026-03（第三轮）目录与文件规范化
 
-- 修复所有 HTML 文件中错误的 `/hexo-theme-icarus/` 资源路径前缀
-- 将废弃的 `useso.com` CDN 替换为 Google Fonts + jsDelivr
-- jQuery 从 2.0.3 升级到 3.7.1
-- 移除所有文件中使用占位符 shortname 的无效 Disqus 脚本
-- 修复两处 `border-color` CSS 语法错误
-- 全站添加 `<meta name="theme-color">` 支持 Android Chrome 主题色
-- 新增完整的移动端触控优化（去除点击延迟、48dp 触控目标、代码块横向滚动等）
-- `css/style.css` 添加 11 个模块注释分区
-- `js/script.js` 全部注释重写为开发者友好格式
+- **文章目录**：9 个中文路径全部重命名为英文 kebab-case slug
+- **分类目录**：`产品设计` / `技术研发` / `生活随笔` → `product-design` / `tech` / `life`
+- **标签目录**：8 个中文标签改为英文，`Bintray` / `jCenter` 统一小写
+- **资源目录**：`css/` `js/` `fancybox/` `font-awesome/` 统一归入 `assets/` 下
+- **博客名称**：`csKevin's Blog` → `cser's Blog`（页面标题、meta、页脚全部同步）
+- 全站 42 个 HTML 文件路径引用同步更新
+
+### 2026-03（第二轮）注释优化 + 移动端适配
+
+- `assets/css/style.css` 新增 12 个模块注释分区，1990 行无注释 → 结构清晰
+- `assets/js/script.js` 全部注释重写，每个功能模块有清晰说明
+- 修复两处 `border-color` CSS 语法错误（无效值导致边框不显示）
+- 新增移动端优化模块：去除 Android 点击蓝色高亮、消除 300ms 延迟、48dp 触控目标、`#toTop` 移动端定位修复、代码块横向滚动
+- 全站 41 个 HTML 添加 `<meta name="theme-color">` 支持 Android Chrome 主题色
+
+### 2026-03（第一轮）基础修复
+
+- 修复所有 HTML 中错误的 `/hexo-theme-icarus/` 资源路径前缀（960 处）
+- 废弃 `useso.com` CDN → Google Fonts + jsDelivr
+- jQuery 2.0.3 → 3.7.1
+- 移除全站无效 Disqus 脚本及残留容器
+- 修复 `href="javascript:;"` 无效链接
+- 修复导航首页链接 `href="/."`
