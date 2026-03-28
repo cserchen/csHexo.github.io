@@ -1,4 +1,22 @@
 /* ===========================================
+   style.css — cser's Blog
+   主样式表，基于 Hexo Icarus 主题定制
+
+   变更记录：
+   v1.2  2026-03  目录规范化，资源路径迁移至 assets/css/
+   v1.1  2026-03  添加 12 个模块注释分区；修复 border-color 语法错误；
+                  新增移动端/Android 触控优化模块（tap-highlight、
+                  touch-action、48dp 触控目标、#toTop 定位修复、
+                  代码块横向滚动、搜索框防缩放）
+   v1.0  2015-08  Hexo Icarus 主题初始版本
+
+   依赖：
+   - Google Fonts: Open Sans, Source Code Pro（外部 CDN）
+   - Font Awesome 4.x（assets/lib/font-awesome/）
+   - FancyBox 2.x（assets/lib/fancybox/）
+   =========================================== */
+
+/* ===========================================
    CSS Reset
    Legacy reset adapted from Eric Meyer Reset.
    Removes default browser styling for consistency.

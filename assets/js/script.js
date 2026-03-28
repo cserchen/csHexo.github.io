@@ -1,5 +1,10 @@
 /**
- * script.js — csKevin's Blog (Hexo / Icarus Theme)
+ * script.js — cser's Blog (Hexo / Icarus Theme)
+ *
+ * 变更记录：
+ * v1.2  2026-03  目录规范化，文件迁移至 assets/js/script.js
+ * v1.1  2026-03  全部注释重写为开发者友好格式，补充各模块用途说明
+ * v1.0  2015-08  Hexo Icarus 主题初始版本
  *
  * Handles client-side interactions:
  *  - Article share box (Twitter, Facebook, Pinterest, Google+)
